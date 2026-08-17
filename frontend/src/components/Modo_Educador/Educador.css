@@ -1,0 +1,598 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.educador-page {
+  min-height: 100vh;
+  padding: 34px;
+  font-family: "Fredoka", "Poppins", sans-serif;
+  color: #3b1f0f;
+  background:
+    radial-gradient(circle at 15% 14%, rgba(255,255,255,0.95) 0 80px, transparent 82px),
+    radial-gradient(circle at 85% 18%, rgba(255,255,255,0.75) 0 95px, transparent 98px),
+    linear-gradient(180deg,#8ee5fb 0%,#c9f6ff 48%,#f4d19b 49%,#d99850 100%);
+  overflow-x: hidden;
+}
+
+.educador-container {
+  max-width: 1180px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.educador-back-btn {
+  position: fixed;
+  top: 28px;
+  left: 28px;
+  background: white;
+  border: 3px solid #6b21a8;
+  color: #6b21a8;
+  border-radius: 18px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-weight: 900;
+  font-family: "Fredoka", sans-serif;
+  box-shadow: 0 6px 0 #3b0764;
+  margin-bottom: 22px;
+}
+
+.educador-header {
+  margin-bottom: 28px;
+}
+
+.educador-brand {
+  color: #6b21a8;
+  font-size: 24px;
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+
+.educador-title {
+  margin: 0;
+  font-size: clamp(52px, 7vw, 78px);
+  color: #facc15;
+  text-shadow:
+    4px 4px 0 #3b0764,
+    -3px -3px 0 white;
+}
+
+.educador-subtitle {
+  color: #4b2e13;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 16px 0 0;
+}
+
+.educador-card {
+  background: #fff7df;
+  border: 5px solid #9a5b22;
+  border-radius: 34px;
+  padding: 32px;
+  box-shadow:
+    0 12px 0 #7c3f16,
+    0 22px 38px rgba(70,35,10,.22);
+}
+
+.educador-card-title {
+  color: #6b21a8;
+  font-size: 36px;
+  margin: 0;
+}
+
+.educador-misiones-card {
+  margin-top: 22px;
+}
+
+.educador-misiones-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.educador-misiones-title {
+  color: #6b21a8;
+  font-size: 38px;
+  margin: 0;
+}
+
+.educador-nueva-mision {
+  display: flex;
+  gap: 14px;
+}
+
+.educador-nueva-mision input {
+  width: 260px;
+  background: white;
+  border: 4px solid #e0b36a;
+  border-radius: 22px;
+  padding: 16px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #3b1f0f;
+  outline: none;
+}
+
+.educador-nueva-mision input:focus {
+  border-color: #6b21a8;
+}
+
+.educador-add-mision-btn,
+.educador-save-btn {
+  border: none;
+  border-radius: 24px;
+  padding: 16px 28px;
+  background: linear-gradient(180deg,#fde047,#f59e0b);
+  color: #6b21a8;
+  font-family: "Fredoka", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 7px 0 #b45309;
+}
+
+.educador-temas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.educador-tema-card {
+  position: relative;
+  min-height: 210px;
+  text-align: left;
+  cursor: pointer;
+  background: linear-gradient(180deg,#fff7df,#fde68a);
+  border: 5px solid #9a5b22;
+  border-radius: 30px;
+  padding: 28px;
+  box-shadow:
+    0 9px 0 #7c3f16,
+    0 18px 30px rgba(70,35,10,.2);
+  transition: .18s ease;
+}
+
+.educador-tema-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Botón Eliminar Misión en la esquina superior derecha */
+.educador-delete-mision-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(180deg,#fecaca,#ef4444);
+  border: 3px solid #991b1b;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 0 #991b1b;
+  transition: all 0.15s ease;
+  z-index: 10;
+}
+
+.educador-delete-mision-btn:hover {
+  background: #ef4444;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #991b1b;
+}
+
+.educador-delete-mision-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #991b1b;
+}
+
+/* Tooltip personalizado en CSS */
+.educador-delete-mision-btn::after {
+  content: "Eliminar";
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  background: #3b1f0f;
+  color: #fff7df;
+  border: 2px solid #9a5b22;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.18s ease;
+  box-shadow: 0 4px 8px rgba(70,35,10,.25);
+}
+
+.educador-delete-mision-btn:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.educador-tema-icono {
+  display: block;
+  font-size: 44px;
+  margin-bottom: 16px;
+}
+
+.educador-tema-nombre {
+  display: block;
+  color: #6b21a8;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.educador-tema-contador {
+  display: block;
+  color: #4b2e13;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  margin-top: 8px;
+}
+
+.educador-tema-action {
+  display: inline-block;
+  margin-top: 18px;
+  background: white;
+  border: 3px solid #6b21a8;
+  border-radius: 18px;
+  padding: 10px 16px;
+  color: #6b21a8;
+  font-weight: 900;
+}
+
+/* DETALLE MISIÓN */
+
+.educador-detalle-card {
+  margin-top: 22px;
+}
+
+.educador-detalle-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.educador-counter {
+  display: inline-block;
+  margin: 16px 0 0;
+  background: #fff0b8;
+  color: #6b21a8;
+  border-radius: 18px;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.educador-list-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.educador-object-card {
+  background: white;
+  border: 4px solid #e0b36a;
+  border-radius: 28px;
+  padding: 22px;
+  box-shadow: 0 8px 0 #d6a35d;
+}
+
+.educador-item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.educador-item-key {
+  display: inline-block;
+  background: #6b21a8;
+  color: white;
+  border-radius: 14px;
+  padding: 8px 14px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.educador-item-name {
+  color: #6b21a8;
+  font-size: 30px;
+  margin: 0;
+}
+
+.educador-edit-btn {
+  border: none;
+  border-radius: 18px;
+  padding: 10px 18px;
+  background: linear-gradient(180deg,#93c5fd,#38bdf8);
+  color: #082f49;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #0369a1;
+}
+
+.educador-item-image {
+  width: 170px;
+  height: 150px;
+  background: white;
+  border: 4px solid #e0b36a;
+  border-radius: 22px;
+  padding: 12px;
+  margin: 18px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.educador-item-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.educador-item-details {
+  color: #4b2e13;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.educador-empty-text {
+  color: #4b2e13;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.educador-footer-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+
+.educador-delete-btn {
+  border: none;
+  border-radius: 24px;
+  padding: 16px 26px;
+  background: linear-gradient(180deg,#fecaca,#ef4444);
+  color: white;
+  font-family: "Fredoka", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 7px 0 #991b1b;
+}
+
+/* MODAL FORMULARIO */
+
+.educador-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 28px;
+  backdrop-filter: blur(4px);
+}
+
+.educador-modal {
+  width: min(980px, 96vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff7df;
+  border: 5px solid #9a5b22;
+  border-radius: 34px;
+  padding: 34px;
+  box-shadow:
+    0 12px 0 #7c3f16,
+    0 25px 50px rgba(0,0,0,.35);
+}
+
+.educador-modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.educador-modal-header h2 {
+  margin: 0;
+  color: #6b21a8;
+  font-size: 42px;
+}
+
+.educador-modal-close {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: #ef4444;
+  color: white;
+  font-size: 32px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #991b1b;
+}
+
+.educador-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.educador-form-wide {
+  grid-column: 1 / -1;
+}
+
+.educador-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.educador-form-group label {
+  color: #3b1f0f;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.educador-form-group input,
+.educador-form-group select,
+.educador-form-group textarea {
+  width: 100%;
+  background: white;
+  border: 3px solid #e0b36a;
+  border-radius: 18px;
+  padding: 14px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #3b1f0f;
+  outline: none;
+}
+
+.educador-form-group input:focus,
+.educador-form-group select:focus,
+.educador-form-group textarea:focus {
+  border-color: #6b21a8;
+}
+
+.educador-form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.educador-image-preview {
+  width: 180px;
+  height: 160px;
+  background: white;
+  border: 4px solid #e0b36a;
+  border-radius: 22px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.educador-image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.educador-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.educador-cancel-btn {
+  border: none;
+  border-radius: 24px;
+  padding: 16px 26px;
+  background: linear-gradient(180deg,#e5e7eb,#94a3b8);
+  color: #1e293b;
+  font-family: "Fredoka", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 7px 0 #475569;
+}
+
+@media (max-width: 850px) {
+  .educador-page {
+    padding: 22px;
+  }
+
+  .educador-misiones-header,
+  .educador-detalle-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .educador-nueva-mision {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .educador-nueva-mision input {
+    width: 100%;
+  }
+
+  .educador-temas-grid,
+  .educador-list-cards,
+  .educador-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .educador-title {
+    font-size: 44px;
+  }
+
+  .educador-modal {
+    padding: 24px;
+  }
+
+  .educador-modal-header h2 {
+    font-size: 32px;
+  }
+}
+
+.educador-create-mission-modal {
+  width: min(560px, 92vw);
+}
+
+.educador-pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.educador-pagination button {
+  border: none;
+  border-radius: 20px;
+  padding: 14px 24px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  background: linear-gradient(180deg,#93c5fd,#38bdf8);
+  color: #082f49;
+  box-shadow: 0 6px 0 #0369a1;
+}
+
+.educador-pagination button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.educador-pagination span {
+  background: #fff0b8;
+  color: #6b21a8;
+  border: 3px solid #e0b36a;
+  border-radius: 18px;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 900;
+}

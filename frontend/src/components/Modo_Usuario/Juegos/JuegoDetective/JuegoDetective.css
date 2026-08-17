@@ -1,0 +1,669 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.detective-page {
+  min-height: 100vh;
+  padding: 34px;
+  font-family: "Fredoka", "Poppins", sans-serif;
+  color: #3b1f0f;
+  background:
+    radial-gradient(circle at 15% 14%, rgba(255,255,255,0.95) 0 80px, transparent 82px),
+    radial-gradient(circle at 85% 18%, rgba(255,255,255,0.75) 0 95px, transparent 98px),
+    linear-gradient(180deg, #8ee5fb 0%, #c9f6ff 48%, #f4d19b 49%, #d99850 100%);
+  overflow-x: hidden;
+}
+
+.detective-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(104, 64, 20, 0.15) 8px, transparent 9px),
+    radial-gradient(circle, rgba(104, 64, 20, 0.10) 5px, transparent 6px);
+  background-size: 120px 120px;
+  background-position: 40px 520px, 64px 548px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.detective-container {
+  max-width: 1120px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.detective-topbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.detective-back-btn {
+  background: white;
+  border: 3px solid #6b21a8;
+  color: #6b21a8;
+  border-radius: 18px;
+  padding: 11px 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #3b0764;
+  transition: 0.18s ease;
+}
+
+.detective-back-btn:hover {
+  transform: translateY(-2px);
+}
+
+.detective-header {
+  margin-bottom: 28px;
+}
+
+.detective-brand {
+  color: #6b21a8;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.detective-title {
+  margin: 0;
+  font-size: clamp(44px, 6vw, 72px);
+  line-height: 0.95;
+  color: #facc15;
+  text-transform: uppercase;
+  text-shadow:
+    4px 4px 0 #3b0764,
+    -3px -3px 0 #ffffff;
+}
+
+.detective-subtitle {
+  margin: 22px 0 0;
+  color: #4b2e13;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.detective-card {
+  background: #fff7df;
+  border: 4px solid #9a5b22;
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow:
+    0 10px 0 #7c3f16,
+    0 18px 35px rgba(70, 35, 10, 0.25);
+}
+
+.detective-card-title {
+  color: #6b21a8;
+  font-size: 34px;
+  margin: 0 0 18px;
+}
+
+.detective-card-label {
+  color: #6b21a8;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.detective-card-description {
+  color: #4b2e13;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+/* CARRUSEL */
+
+.detective-temas-card {
+  margin-top: 30px;
+}
+
+.detective-temas-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 16px 8px 28px;
+  scroll-snap-type: x mandatory;
+}
+
+.detective-tema-card {
+  min-width: 260px;
+  min-height: 185px;
+  scroll-snap-align: start;
+  background: linear-gradient(180deg, #fff7df, #fde68a);
+  border: 4px solid #9a5b22;
+  border-radius: 28px;
+  padding: 26px;
+  cursor: pointer;
+  text-align: left;
+  box-shadow:
+    0 8px 0 #7c3f16,
+    0 18px 30px rgba(70, 35, 10, 0.22);
+  transition: 0.18s ease;
+}
+
+.detective-tema-card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+.detective-tema-icono {
+  display: block;
+  font-size: 46px;
+  margin-bottom: 18px;
+}
+
+.detective-tema-nombre {
+  display: block;
+  font-size: 30px;
+  font-weight: 900;
+  color: #6b21a8;
+}
+
+.detective-tema-contador {
+  display: block;
+  margin-top: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #4b2e13;
+}
+
+/* JUEGO */
+
+.detective-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.detective-clues-list {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.detective-clue-item {
+  font-size: 22px;
+  font-weight: 800;
+  color: #4b2e13;
+  margin-bottom: 12px;
+}
+
+.detective-status-card {
+  margin-top: 24px;
+}
+
+.detective-status-text {
+  color: #3b1f0f;
+  font-size: 28px;
+  margin: 0;
+}
+
+.detective-status-hint {
+  color: #6b21a8;
+  font-weight: 800;
+}
+
+.detective-result {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.detective-result-ok {
+  color: #16a34a;
+}
+
+.detective-result-bad {
+  color: #dc2626;
+}
+
+.detective-image-box {
+  width: 190px;
+  height: 170px;
+  background: white;
+  border: 4px solid #e0b36a;
+  border-radius: 22px;
+  padding: 12px;
+  margin: 12px 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 0 #d6a35d;
+}
+
+.detective-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 800px) {
+  .detective-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detective-title {
+    font-size: 42px;
+  }
+}
+
+/* DIALOGOS */
+
+.detective-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.detective-dialog {
+  width: min(92%, 620px);
+  background: #fff7df;
+  border: 5px solid #9a5b22;
+  border-radius: 34px;
+  padding: 42px 34px;
+  text-align: center;
+  box-shadow:
+    0 12px 0 #7c3f16,
+    0 25px 50px rgba(0,0,0,.35);
+  pointer-events: auto;
+}
+
+.detective-dialog h2 {
+  margin: 0 0 18px;
+  font-size: 56px;
+  line-height: .95;
+  color: #facc15;
+  text-shadow:
+    4px 4px 0 #3b0764,
+    -3px -3px 0 white;
+}
+
+.detective-dialog p {
+  margin: 0 0 18px;
+  font-size: 23px;
+  font-weight: 800;
+  color: #4b2e13;
+}
+
+.detective-dialog-score {
+  font-size: 64px;
+  font-weight: 900;
+  color: #6b21a8;
+  margin: 22px 0 28px;
+}
+
+.detective-dialog-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.detective-dialog-btn {
+  border: none;
+  border-radius: 22px;
+  padding: 18px 34px;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  color: #6b21a8;
+  background: linear-gradient(180deg,#fde047,#facc15);
+  box-shadow: 0 8px 0 #c2410c;
+}
+
+.detective-dialog-secondary {
+  background: linear-gradient(180deg,#93c5fd,#38bdf8);
+  color: #082f49;
+  box-shadow: 0 8px 0 #0369a1;
+}
+
+/* JUEGO PRINCIPAL */
+
+.detective-game-container {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.detective-score-box {
+  position: fixed;
+  top: 50%;
+  right: 32px;
+  background: #fff7df;
+  border: 4px solid #6b21a8;
+  color: #6b21a8;
+  border-radius: 22px;
+  padding: 14px 24px;
+  font-size: 24px;
+  font-weight: 900;
+  box-shadow: 0 7px 0 #3b0764;
+  z-index: 20;
+}
+
+.detective-mission-badge {
+  background: linear-gradient(180deg,#fde047,#f59e0b);
+  color: #6b21a8;
+  border: 4px solid #6b21a8;
+  border-radius: 26px;
+  padding: 14px 28px;
+  font-size: 26px;
+  font-weight: 900;
+  box-shadow:
+    0 7px 0 #3b0764,
+    0 18px 30px rgba(70,35,10,.22);
+  margin-bottom: 28px;
+}
+
+.detective-main-board {
+  width: min(850px, 94vw);
+  background: #fff7df;
+  border: 5px solid #9a5b22;
+  border-radius: 38px;
+  padding: 34px;
+  text-align: center;
+  box-shadow:
+    0 12px 0 #7c3f16,
+    0 28px 45px rgba(70,35,10,.28);
+}
+
+.detective-main-title {
+  margin: 0 0 24px;
+  font-size: clamp(38px, 5vw, 64px);
+  color: #facc15;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-shadow:
+    4px 4px 0 #3b0764,
+    -3px -3px 0 white;
+}
+
+.detective-evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.detective-evidence-card {
+  background: white;
+  border: 4px solid #e0b36a;
+  border-radius: 26px;
+  padding: 22px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 7px 0 #d6a35d;
+}
+
+.detective-evidence-icon {
+  font-size: 36px;
+  color: #6b21a8;
+  margin-bottom: 10px;
+}
+
+.detective-evidence-label {
+  color: #6b21a8;
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.detective-evidence-card strong {
+  color: #3b1f0f;
+  font-size: 22px;
+}
+
+.detective-center-text {
+  max-width: 650px;
+  margin: 0 auto 20px;
+}
+
+.detective-game-buttons {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 22px 0;
+}
+
+.detective-confirm-btn,
+.detective-reveal-btn {
+  border: none;
+  border-radius: 26px;
+  padding: 18px 30px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detective-confirm-btn {
+  background: linear-gradient(180deg,#86efac,#22c55e);
+  color: #14532d;
+  box-shadow: 0 7px 0 #15803d;
+}
+
+.detective-reveal-btn {
+  background: linear-gradient(180deg,#fecaca,#ef4444);
+  color: white;
+  box-shadow: 0 7px 0 #991b1b;
+}
+
+.detective-answer-box {
+  background: white;
+  border: 4px solid #6b21a8;
+  border-radius: 30px;
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 420px;
+  box-shadow: 0 8px 0 #3b0764;
+}
+
+.detective-answer-label {
+  color: #6b21a8;
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 12px;
+}
+
+.detective-object-name {
+  margin: 12px 0 18px;
+  font-size: 44px;
+  color: #6b21a8;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.detective-feedback {
+  margin: 24px auto 0;
+  width: fit-content;
+  max-width: 100%;
+  background: white;
+  color: #6b21a8;
+  border: 4px solid #6b21a8;
+  border-radius: 24px;
+  padding: 14px 24px;
+  font-size: 24px;
+  font-weight: 900;
+  box-shadow: 0 6px 0 #3b0764;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.detective-feedback.feedback-ok {
+  color: #166534;
+  border-color: #22c55e;
+  box-shadow: 0 6px 0 #15803d;
+}
+
+.detective-feedback.feedback-bad {
+  color: #991b1b;
+  border-color: #ef4444;
+  box-shadow: 0 6px 0 #991b1b;
+}
+
+.detective-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 140px;
+  transform: translateX(-50%);
+  padding: 18px 32px;
+  border-radius: 26px;
+  font-size: 26px;
+  font-weight: 900;
+  background: white;
+  border: 4px solid #6b21a8;
+  color: #6b21a8;
+  box-shadow: 0 8px 0 #3b0764;
+  z-index: 30;
+}
+
+.detective-toast-correcto {
+  border-color: #22c55e;
+  color: #166534;
+  box-shadow: 0 8px 0 #15803d;
+}
+
+.detective-toast-incorrecto {
+  border-color: #ef4444;
+  color: #991b1b;
+  box-shadow: 0 8px 0 #991b1b;
+}
+
+.detective-toast-alerta {
+  border-color: #f59e0b;
+  color: #92400e;
+  box-shadow: 0 8px 0 #b45309;
+}
+
+/* BOTONES FLOTANTES */
+
+.detective-floating-actions {
+  position: fixed;
+  right: 32px;
+  bottom: 30px;
+  display: flex;
+  gap: 16px;
+  z-index: 10;
+}
+
+.detective-action-btn {
+  border: none;
+  border-radius: 26px;
+  padding: 18px 26px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: .18s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detective-change-btn {
+  background: linear-gradient(180deg,#93c5fd,#38bdf8);
+  color: #082f49;
+  box-shadow: 0 7px 0 #0369a1;
+}
+
+.detective-exit-btn {
+  background: linear-gradient(180deg,#fecaca,#ef4444);
+  color: white;
+  box-shadow: 0 7px 0 #991b1b;
+}
+
+@media (max-width: 800px) {
+  .detective-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detective-floating-actions {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    flex-direction: column;
+  }
+
+  .detective-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .detective-main-board {
+    margin-bottom: 160px;
+  }
+}
+
+.detective-dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.detective-dialog-back-btn {
+  background: linear-gradient(180deg, #e5e7eb, #94a3b8);
+  color: #1e293b;
+  box-shadow: 0 8px 0 #475569;
+}
+
+.detective-back-btn {
+  position: fixed;
+  top: 28px;
+  left: 28px;
+  z-index: 20;
+
+  background: white;
+  border: 3px solid #6b21a8;
+  color: #6b21a8;
+  border-radius: 18px;
+  padding: 12px 20px;
+
+  font-family: "Fredoka", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+
+  cursor: pointer;
+  box-shadow: 0 6px 0 #3b0764;
+  transition: 0.2s;
+}
+
+.mision-back-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Estilo para Escaneo Auditivo activo */
+.activo-escaneo {
+  outline: 5px solid #38bdf8 !important;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.85) !important;
+  transform: translateY(-5px) scale(1.02) !important;
+  animation: scanPulse 1.5s infinite ease-in-out !important;
+}
+
+@keyframes scanPulse {
+  0%, 100% {
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.85);
+  }
+  50% {
+    box-shadow: 0 0 36px rgba(56, 189, 248, 0.95), 0 0 12px rgba(56, 189, 248, 0.5);
+  }
+}
