@@ -136,6 +136,16 @@ app.put("/objetos/:id", async (req, res) => {
 });
 
 
+const path = require('path');
+
+// Servir los archivos estáticos del frontend compilado
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+// Redirigir cualquier otra petición no controlada por las rutas API al index.html del frontend
+app.get('/{*splat}', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
+
 // Iniciar servidor para mi
 /*app.listen(PORT, () => {
   console.log(`Servidor corriendo en puerto ${PORT}`);
@@ -145,3 +155,4 @@ app.put("/objetos/:id", async (req, res) => {
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor corriendo en puerto ${PORT}`);
 });
+
